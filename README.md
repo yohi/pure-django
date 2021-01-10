@@ -29,7 +29,7 @@ docker-compose build
 4. プロジェクトの作成（初回のみ）
 
 `$
-docker-compose run app django-admin startproject conifg .
+docker-compose run app django-admin startproject config .
 `
 
 5. コンテナの起動
