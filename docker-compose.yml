@@ -1,10 +1,51 @@
-version: '3.8'
+version: '3.9'
+
 
 services:
-    app:
-        build: .
-        command: bash -c 'python manage.py migrate && python manage.py runserver 0.0.0.0:8000'
-        ports:
-            - '8000:8000'
-        volumes:
-          - ./app:/code
+  app:
+    build:
+      context: ./django/
+      dockerfile: Dockerfile-dev
+    tty: true
+    stdin_open: true
+    env_file:
+      - ./aws.env
+    environment:
+      - ENV=local
+      - DEBUG=True
+      - DATABASE_URL=postgres://root:password@postgres:5432/db_name
+      # - DATABASE_URL=mysql://root:password@mysql:5432/db_name
+    ports:
+      - '8000'
+    volumes:
+      - ./django/app:/code
+      - pip-cache:/root/.cache/pip
+
+  postgres:
+    image: postgres:13.2
+    environment:
+      TZ: Asia/Tokyo
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_INITDB_ARGS: '--encoding=UTF-8'
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      # - ./db/init:/docker-entrypoint-initdb.d
+    ports:
+      - '5432'
+
+  mysql:
+    image: mysql:8.0
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/mysql
+      # - ./db/init:/docker-entrypoint-initdb.d
+    ports:
+      - '3306'
+
+volumes:
+  pip-cache:
+  db_data:

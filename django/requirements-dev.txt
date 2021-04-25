@@ -1,0 +1,23 @@
+-r requirements.txt
+
+# DEVTOOLS
+django-extensions
+factory-boy
+flake8
+pytest
+pytest-django
+Faker
+werkzeug
+django-werkzeug-debugger-runserver
+django-debug-toolbar
+django-debugtools
+pytest-cov
+drf-yasg
+coverage
+django_coverage_plugin
+moto
+django-cprofile-middleware
+ipython
+ptipython
+jupyterlab
+django-silk

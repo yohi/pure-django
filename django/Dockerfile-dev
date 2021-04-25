@@ -1,0 +1,30 @@
+# vim: set ft=dockerfile :
+
+FROM python:3.9-buster
+ENV PYTHONUNBUFFERED 1
+
+RUN echo "alias ll='ls -la'" >> ~/.bashrc
+
+RUN apt update \
+    && apt upgrade -y \
+    && apt install -y \
+    procps \
+    vim \
+    postgresql-client \
+    gcc \
+    # default-libmysqlclient \
+    mariadb-client \
+    build-essential
+
+RUN pip3 install --upgrade pip
+
+COPY ./docker-entrypoint-dev.sh /tmp/
+RUN chmod +x /tmp/docker-entrypoint-dev.sh
+
+COPY ./requirements*.txt /tmp/
+RUN pip3 install -r /tmp/requirements-dev.txt
+
+WORKDIR /code
+
+# CMD ["/tmp/docker-entrypoint-dev.sh"]
+ENTRYPOINT ["/tmp/docker-entrypoint-dev.sh"]

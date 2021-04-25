@@ -1,0 +1,95 @@
+# Django
+Django>=3.2,<4.0
+
+# Postgres
+psycopg2-binary
+
+# MySQL
+mysqlclient
+
+# DJANGO_ENVIRON
+django-environ
+
+
+# ###### Requirements with Version Specifiers ######`
+# 
+# # プログレスバー
+# tqdm==4.59.0
+# 
+# # Python-BOX
+# python_box==5.3.0
+# 
+# Django==2.2.19
+# 
+# 
+# django_postgres_extensions==0.9.3
+# django-jsonfield-backport==1.0.3
+# 
+# Pillow==8.1.2
+# django-cleanup==5.1.0
+# 
+# django-admin-sortable==2.2.3
+# 
+# django-model-utils==4.1.1
+# 
+# 
+# django-admin-json-editor==0.2.3
+# django-entangled==0.4
+# 
+# # 認証拡張
+# django-allauth==0.44.0
+# django-login-required-middleware==0.5.0
+# # django-admin-search
+# 
+# # Django REST Framework
+# djangorestframework==3.11.1
+# 
+# # JWT認証
+# djangorestframework-simplejwt==4.6.0
+# djoser==2.1.0
+# django-cors-headers==3.7.0
+# 
+# # POSTリクエスト配列整形 https://github.com/bernii/querystring-parser
+# querystring-parser==1.2.4
+# 
+# # Django Filter
+# django-filter==2.2.0
+# 
+# # Django Widget Tweaks
+# django-widget-tweaks==1.4.8
+# 
+# # Django Crispy Forms
+# django-crispy-forms==1.11.1
+# 
+# # Django Strages
+# django-storages==1.11.1
+# 
+# # BOTO3
+# boto3==1.17.25
+# 
+# 
+# # PARAMIKO
+# paramiko==2.7.2
+# 
+# more-itertools==8.7.0
+# 
+# more-itertools
+# 
+# python-barcode==0.13.1
+# 
+# # 日本語全角半角変換
+# jaconv
+# 
+# 
+# ###### Requirements without Version Specifiers ######`
+# # SENTRY
+# sentry-sdk
+# 
+# # CloudWatch
+# watchtower
+# 
+# # uwsgi調査用
+# uwsgitop
+# 
+# # DJANGO-HEALTH-CHECK
+# django-health-check
