@@ -1,4 +1,4 @@
-FROM python:3.8-slim
+FROM python:3.9-slim
 
 RUN apt update \
     && apt -y upgrade --no-install-recommends \
@@ -12,4 +12,4 @@ ENV PYTHONUNBUFFERED 1
 
 WORKDIR /code
 RUN pip install --upgrade pip
-RUN pip install Django'>=2.0,<3.0'
+RUN pip install Django'>=3.0,<4.0'
